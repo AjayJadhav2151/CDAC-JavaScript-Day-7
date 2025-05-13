@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <tr>
+            <td><label>Enter First Name :</label></td>
+            <td><input type="text" name="fname" id="fnm"></td>
+            <br/>
+            <td><label>Enter Full Name :</label></td>
+            <td><input type="text" name="fullname" id="full"></td>
+            <br/>
+            <td><label>Enter Phone Number :</label></td>
+            <td><input type="number" id="num"></td>
+            <br/>
+            <td><label>Enter Phone Number with Country Code :</label></td>
+            <td><input type="text" id="codenum"></td>
+            <br/>
+            <td><label>Enter Email :</label></td>
+            <td><input type="text" id="email"></td>
+            <br/> 
+            <td><label>Enter Course Name :</label></td>
+            <td><input type="text" id="course"></td>
+            <br/>
+            <td><label>Enter Aadhar Number :</label></td>
+            <td><input type="text" id="aadhar"></td>
+            <br />
+            <td><label>Enter Pan Number :</label></td>
+            <td><input type="text" id="Pan"></td>
+            <br />
+
+            <button type="button" onclick="validation()">Submit</button>
+            <br />
+            <span id="error"></span>
+        </tr>
+    </form>
+
+    <script>
+        function validation() {
+            var fid = document.getElementById("fnm").value;
+            var fnamepattern = /^[A-Z]{1}[a-z]{1,}$/
+            if (!fnamepattern.test(fid)) {
+                document.getElementById("error").innerHTML += "Invalid First Name.."
+            }
+            var fullname = document.getElementById("full").value;
+            var fullnamepattern = /^[A-Z]{1}[a-z]{1,}\s[A-Z]{1}[a-z]{1,}$/
+            if(!fullnamepattern.test(fullname)){
+                document.getElementById("error").innerHTML += "Invalid FULL Name.."
+            }
+            var phnum = document.getElementById("num").value;
+            // alert(phnum);
+            var numberpattern = /^\d{10}$/
+            if(!numberpattern.test(phnum)){
+                document.getElementById("error").innerHTML += "Invalid Number..."
+            }
+            var cnum = document.getElementById("codenum").value;
+            // alert(cnum);
+            var codepattern = /^\d{2}-\d{10}$/
+            if(!codepattern.test(cnum)){
+                document.getElementById("error").innerHTML += "Invalid Country Code and Number..."
+            }
+            var mailid = document.getElementById("email").value;
+            // alert(mailid);
+            var mailpattern = /^[\w\.]{10,30}@[a-z0-9]{4,20}\.[a-z]{2,3}$/
+            if(!mailpattern.test(mailid)){
+                document.getElementById("error").innerHTML += "Invalid Mail.."
+            }
+            var couname = document.getElementById("course").value;
+            var coursepattern = /^PG-[A-Z]{3,8}/
+            if(!coursepattern.test(couname)){
+                    document.getElementById("error").innerHTML += "Invalid Course.."
+             }
+            var aadharnumber = document.getElementById("aadhar").value;
+            // alert(phnum);
+            var aadharpattern = /^\d{4}\s\d{4}\s\d{4}$/
+            if (!aadharpattern.test(aadharnumber)) {
+                document.getElementById("error").innerHTML += "Invalid aadhar Number..."
+            }
+            var pannumber = document.getElementById("Pan").value;
+            // alert(phnum);
+            var panpattern = /^[A-Z]{5}\d{4}[A-Z]{1}$/
+            if (!panpattern.test(pannumber)) {
+                document.getElementById("error").innerHTML += "Invalid Pan Number..."
+            }
+        }
+    </script>
+</body>
+
+</html>

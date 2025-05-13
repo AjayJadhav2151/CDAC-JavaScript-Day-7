@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <script>
+        function Validate() {
+            var uid = document.getElementById("userid").value;
+            var pass = document.getElementById("password").value;
+
+            var uidPattern = /^[A-Za-z.]{5,15}$/;
+    
+            var passPattern = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&])[A-Za-z0-9!@#$%^&*]{5,15}$/;
+
+            var uidValid = uidPattern.test(uid);
+            var passwordValid = passPattern.test(pass);
+
+            var str = `
+                UserId Validation: ${uidValid ? "true" : "<span style='color:red'>false</span>"}
+                <br>
+                Password Validation: ${passwordValid ? "true" : "<span style='color:red'>false</span>"}
+            `;
+
+            document.getElementById("new").innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <td>
+                    <label for="username">User ID:</label><br>
+                    <label for="password">Password:</label>
+                </td>
+                <td id="data">
+                    <input type="text" id="userid" name="uid" ><br>
+                    <input type="password" id="password" name="password" >
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="reset" value="Clear">
+                    <input type="button" onclick="Validate()" value="Login">
+                </td>
+            </tr>
+        </table>
+        <span id="new"></span>
+    </form>
+</body>
+</html>

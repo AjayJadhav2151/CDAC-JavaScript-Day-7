@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="/Day6/1.jpg" alt="image" id="imgon" width="200" height="200" onmouseover="onClick()" onmouseout="origImg()"/>
+
+    <script>
+        function onClick(){
+           var img = document.getElementById("imgon")
+           w = img.width;
+           h = img.height;
+           s = img.src;
+           img.width = "300";
+           img.height = "300";
+           img.src = "/Day6/3.jpg"
+        }
+        
+        function origImg(){
+            var img = document.getElementById("imgon")
+            img.width = w;
+            img.height = h;
+            img.src = s;
+        }
+    </script>
+</body>
+</html>
